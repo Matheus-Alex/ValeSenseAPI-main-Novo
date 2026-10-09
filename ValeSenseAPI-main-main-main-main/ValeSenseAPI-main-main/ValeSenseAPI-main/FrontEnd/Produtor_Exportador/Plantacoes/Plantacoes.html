@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ValeSense | Minhas plantações</title><script>document.documentElement.classList.toggle('dark-theme', localStorage.getItem('valesense_theme') === 'dark');</script><link rel="stylesheet" href="Plantacoes.css">
+</head>
+<body data-login-path="../../Analista_de_dados/Login/Login.html">
+  <header class="pe-topbar"><a class="pe-brand" href="../Home/Home.html"><img src="../../Analista_de_dados/Dashboard/assets/Logo.svg" alt="">ValeSense</a><span class="pe-profile-label">Área do produtor e exportador</span><div class="pe-top-actions"><a class="pe-icon-button" href="../Configuracoes/Configuracoes.html" aria-label="Configurações" title="Configurações"><img src="../../Analista_de_dados/Dashboard/assets/Config.svg" alt=""></a><button class="pe-icon-button" type="button" data-theme-toggle aria-label="Alternar tema" title="Alternar tema" aria-pressed="false"><img data-theme-icon src="../../Analista_de_dados/Dashboard/assets/Lua.svg" alt=""></button></div></header>
+  <div class="pe-layout"><aside class="pe-sidebar"><nav class="pe-nav" aria-label="Navegação principal">
+    <a class="pe-nav-link" href="../Home/Home.html"><img src="../../Analista_de_dados/Dashboard/assets/Home.svg" alt="">Início</a><a class="pe-nav-link active" href="Plantacoes.html" aria-current="page"><img src="../../Analista_de_dados/Dashboard/assets/Maps.svg" alt="">Minhas plantações</a><a class="pe-nav-link" href="../Colheita/Colheita.html"><img src="../../Analista_de_dados/Dashboard/assets/Registro.svg" alt="">Janelas de safra</a><a class="pe-nav-link" href="../Mercado/Mercado.html"><img src="../../Analista_de_dados/Dashboard/assets/Dashboard.svg" alt="">Mercado</a><a class="pe-nav-link" href="../Alertas/Alertas.html"><img src="../../Analista_de_dados/Dashboard/assets/Sensor.svg" alt="">Alertas</a><a class="pe-nav-link" href="../Configuracoes/Configuracoes.html"><img src="../../Analista_de_dados/Dashboard/assets/Config.svg" alt="">Configurações</a>
+  </nav></aside><main class="pe-content">
+    <div class="pe-heading"><div><p class="pe-kicker">Talhões vinculados à sua conta</p><h1>Minhas plantações</h1><p>Área e condição dos sensores por talhão cadastrado.</p></div><label class="pe-toolbar"><span class="pe-stat-label">Pesquisar</span><input class="pe-input" id="plotSearch" type="search" placeholder="Nome do talhão ou propriedade" aria-label="Pesquisar talhões"></label></div>
+    <section class="pe-grid pe-grid-3" id="plotGrid" aria-live="polite"><p class="pe-loading">Carregando talhões...</p></section>
+  </main></div>
+  <script src="../../theme.js"></script><script src="../../api-config.js"></script><script src="../../api-client.js"></script><script src="../../Analista_de_dados/auth-guard.js"></script><script src="../shared.js"></script><script src="Plantacoes.js"></script>
+</body></html>

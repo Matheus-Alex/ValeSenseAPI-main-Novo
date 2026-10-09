@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ValeSense — Registros</title>
+<link rel="stylesheet" href="Registro.css">
+</head>
+<body data-login-path="../Login/Login.html">
+
+<div class="topbar">
+  <div class="brand"><img class="brand-logo" src="../Dashboard/assets/Logo.svg" alt="ValeSense" />ValeSense</div>
+  <div class="search-box" role="search">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6" stroke="currentColor" stroke-width="2" fill="none"/><line x1="15" y1="15" x2="20" y2="20" stroke="currentColor" stroke-width="2"/></svg>
+    <input id="registroSearch" type="search" placeholder="Pesquisar registros" aria-label="Pesquisar registros" />
+  </div>
+  <div class="topbar-actions">
+    <a class="icon-btn" href="../Configurações/Configuracoes.html" aria-label="Configurações" title="Configurações"><img class="action-icon" src="../Dashboard/assets/Config.svg" alt=""></a>
+    <button class="icon-btn" id="scrollTopBtn" aria-label="Voltar ao topo" title="Voltar ao topo"><img class="action-icon" src="../Dashboard/assets/Up.svg" alt=""></button>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Alternar modo escuro" title="Ativar modo escuro" aria-pressed="false">
+      <img data-theme-icon src="../Dashboard/assets/Lua.svg" alt="">
+    </button>
+  </div>
+</div>
+
+<div class="layout">
+<aside class="sidebar">
+  <nav class="nav-group">
+    <a class="nav-item" href="../Dashboard/Dashboard.html#home"><img class="nav-icon" src="../Dashboard/assets/Home.svg" alt="">Home</a>
+    <a class="nav-item" href="../Dashboard/Dashboard.html#dashboard"><img class="nav-icon" src="../Dashboard/assets/Dashboard.svg" alt="">Dashboard</a>
+    <a class="nav-item" href="../Dashboard/Dashboard.html#sensores"><img class="nav-icon" src="../Dashboard/assets/Sensor.svg" alt="">sensores</a>
+    <a class="nav-item" href="../Dashboard/Dashboard.html#maps"><img class="nav-icon" src="../Dashboard/assets/Maps.svg" alt="">maps</a>
+    <a class="nav-item active" href="Registro.html"><img class="nav-icon" src="../Dashboard/assets/Registro.svg" alt="">registros</a>
+    <a class="nav-item" href="../Frutas/Frutas.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8c-4-3-9 0-9 6 0 5 3 8 7 8 1 0 2-.5 3-.5s2 .5 3 .5c4 0 7-3 7-8 0-6-5-9-9-6-1 .7-1 .7-2 0Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 8c0-3 2-5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>frutas</a>
+  </nav>
+</aside>
+
+<main>
+  <h1 class="page-title"><img class="page-title-icon" src="../Dashboard/assets/Registro.svg" alt="">Registros</h1>
+  <p class="page-subtitle">Histórico de exportações e leituras dos sensores.</p>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="exportacoes">Exportações</div>
+    <div class="tab" data-tab="leituras">Leituras de sensores</div>
+  </div>
+
+  <div class="card">
+    <!-- Exportações -->
+    <div class="tab-panel active" id="panel-exportacoes">
+      <h2>Exportações de dados</h2>
+      <p class="hint">O schema do banco ainda não armazena o histórico das exportações.</p>
+      <table>
+        <thead>
+          <tr><th>Data/hora</th><th>Canal</th><th>Período</th><th>Formato</th><th>Arquivo</th></tr>
+        </thead>
+        <tbody id="exportacoes-body"></tbody>
+      </table>
+    </div>
+
+    <!-- Leituras de sensores -->
+    <div class="tab-panel" id="panel-leituras">
+      <h2>Leituras de sensores</h2>
+      <p class="hint">Consulta somente leitura. Ativar ou desativar sensores é uma ação do Administrador.</p>
+      <div class="toolbar">
+        <select id="filtro-sensor">
+          <option value="todos">Todos os sensores</option>
+          <option value="Sensor Melão">Sensor Melão</option>
+          <option value="Sensor Uvas">Sensor Uvas</option>
+        </select>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Data/hora</th><th>Sensor</th><th>Temperatura</th><th>Umidade</th><th>Status</th></tr>
+        </thead>
+        <tbody id="leituras-body"></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+</div>
+
+<script src="../../theme.js"></script>
+<script src="../../api-config.js"></script>
+<script src="../../api-client.js"></script>
+<script src="../auth-guard.js"></script>
+<script src="Registro.js"></script>
+</body>
+</html>

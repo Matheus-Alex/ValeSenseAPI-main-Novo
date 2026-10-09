@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ValeSense - Configuracoes</title>
+  <link rel="stylesheet" href="Configuracoes.css">
+</head>
+<body data-login-path="../../Analista_de_dados/Login/Login.html">
+  <div class="topbar">
+    <div class="brand"><img class="brand-logo" src="../../Analista_de_dados/Dashboard/assets/Logo.svg" alt="ValeSense" />ValeSense</div>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="scrollTopBtn" aria-label="Voltar ao topo" title="Voltar ao topo"><img src="../../Analista_de_dados/Dashboard/assets/Up.svg" alt=""></button>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Alternar modo escuro" title="Ativar modo escuro" aria-pressed="false">
+        <img data-theme-icon src="../../Analista_de_dados/Dashboard/assets/Lua.svg" alt="">
+      </button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <a class="nav-item" href="../Home/Home.html#home"><img src="../../Analista_de_dados/Dashboard/assets/Home.svg" alt="">Home</a>
+        <a class="nav-item" href="../Home/Home.html#sensores"><img src="../../Analista_de_dados/Dashboard/assets/Sensor.svg" alt="">sensores</a>
+        <a class="nav-item" href="../Home/Home.html#registros"><img src="../../Analista_de_dados/Dashboard/assets/Registro.svg" alt="">registros</a>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <h1 class="page-title"><img src="../../Analista_de_dados/Dashboard/assets/Config.svg" alt="">Configuracoes</h1>
+      <p class="page-subtitle">Preferencias de exibicao e seguranca do painel administrativo.</p>
+
+      <section class="card">
+        <h2>Seguranca</h2>
+        <p>As sessoes sao encerradas ao sair ou retornar pelas setas do navegador. O acesso exige autenticacao novamente.</p>
+        <div class="security-line"><span class="security-dot"></span>Protecao de sessao ativa</div>
+      </section>
+
+      <a class="back-link" href="../Home/Home.html">Voltar para Home</a>
+    </main>
+  </div>
+
+  <script src="../../theme.js"></script>
+  <script src="../../Analista_de_dados/auth-guard.js"></script>
+  <script src="Configuracoes.js"></script>
+</body>
+</html>

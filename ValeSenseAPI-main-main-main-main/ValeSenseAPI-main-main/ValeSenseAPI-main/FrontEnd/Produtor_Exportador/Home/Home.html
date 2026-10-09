@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.toggle('dark-theme', localStorage.getItem('valesense_theme') === 'dark');</script>
+  <title>ValeSense | Início do produtor</title>
+  <link rel="stylesheet" href="Home.css">
+</head>
+<body data-login-path="../../Analista_de_dados/Login/Login.html">
+  <header class="pe-topbar">
+    <a class="pe-brand" href="Home.html"><img src="../../Analista_de_dados/Dashboard/assets/Logo.svg" alt="">ValeSense</a>
+    <span class="pe-profile-label">Área do produtor e exportador</span>
+    <div class="pe-top-actions">
+      <a class="pe-icon-button" href="../Configuracoes/Configuracoes.html" aria-label="Configurações" title="Configurações"><img src="../../Analista_de_dados/Dashboard/assets/Config.svg" alt=""></a>
+      <button class="pe-icon-button" type="button" data-theme-toggle aria-label="Alternar tema" title="Alternar tema" aria-pressed="false"><img data-theme-icon src="../../Analista_de_dados/Dashboard/assets/Lua.svg" alt=""></button>
+    </div>
+  </header>
+  <div class="pe-layout">
+    <aside class="pe-sidebar"><nav class="pe-nav" aria-label="Navegação principal">
+      <a class="pe-nav-link active" href="Home.html" aria-current="page"><img src="../../Analista_de_dados/Dashboard/assets/Home.svg" alt="">Início</a>
+      <a class="pe-nav-link" href="../Plantacoes/Plantacoes.html"><img src="../../Analista_de_dados/Dashboard/assets/Maps.svg" alt="">Minhas plantações</a>
+      <a class="pe-nav-link" href="../Colheita/Colheita.html"><img src="../../Analista_de_dados/Dashboard/assets/Registro.svg" alt="">Janelas de safra</a>
+      <a class="pe-nav-link" href="../Mercado/Mercado.html"><img src="../../Analista_de_dados/Dashboard/assets/Dashboard.svg" alt="">Mercado</a>
+      <a class="pe-nav-link" href="../Alertas/Alertas.html"><img src="../../Analista_de_dados/Dashboard/assets/Sensor.svg" alt="">Alertas</a>
+      <a class="pe-nav-link" href="../Configuracoes/Configuracoes.html"><img src="../../Analista_de_dados/Dashboard/assets/Config.svg" alt="">Configurações</a>
+    </nav></aside>
+    <main class="pe-content">
+      <div class="pe-heading"><div><p class="pe-kicker">Visão da propriedade</p><h1>Início</h1><p>Acompanhe leituras recentes, sensores e próximas janelas cadastradas.</p></div></div>
+      <section class="pe-grid pe-grid-3" aria-label="Resumo dos sensores">
+        <article class="pe-panel"><p class="pe-stat-label">Sensores ativos</p><p class="pe-stat-value" id="activeCount">—</p><p class="pe-stat-note" id="sensorCountNote">Consultando sensores cadastrados</p></article>
+        <article class="pe-panel"><p class="pe-stat-label">Última temperatura</p><p class="pe-stat-value" id="latestTemperature">—</p><p class="pe-stat-note" id="latestReadingTime">Aguardando leitura registrada</p></article>
+        <article class="pe-panel"><p class="pe-stat-label">Próxima janela</p><p class="pe-stat-value" id="nextWindowDate">—</p><p class="pe-stat-note" id="nextWindowNote">Aguardando previsões cadastradas</p></article>
+      </section>
+      <div class="pe-section-head"><div><h2 class="pe-section-title">Condições recentes</h2><p>Leitura mais recente disponível para os seus sensores.</p></div><a class="pe-button secondary" href="../Plantacoes/Plantacoes.html">Ver plantações</a></div>
+      <section class="pe-grid pe-grid-2">
+        <article class="pe-panel"><div class="pe-panel-heading"><div><h2>Clima observado</h2><p id="readingSensor">Sem leitura carregada</p></div><span class="pe-badge info" id="readingStatus">Aguardando</span></div><div class="pe-grid pe-grid-2"><div><p class="pe-stat-label">Temperatura</p><p class="pe-reading" id="weatherTemperature">— <small>°C</small></p></div><div><p class="pe-stat-label">Umidade</p><p class="pe-reading" id="weatherHumidity">— <small>%</small></p></div></div><p class="pe-inline-meta" id="readingTimestamp"></p><div class="pe-empty" id="weatherEmpty" hidden><p>Nenhuma leitura climática disponível no período consultado.</p></div></article>
+        <article class="pe-panel"><div class="pe-panel-heading"><div><h2>Estado dos sensores</h2><p>Resumo dos sensores vinculados aos seus talhões.</p></div></div><div class="pe-list" id="sensorStatusList"><p class="pe-loading">Carregando sensores...</p></div></article>
+      </section>
+      <div class="pe-section-head"><div><h2 class="pe-section-title">Próxima previsão</h2><p>Planejamento cadastrado, sem estimativa de volume de produção.</p></div><a class="pe-button secondary" href="../Colheita/Colheita.html">Ver calendário</a></div>
+      <section class="pe-panel" id="forecastPanel"><p class="pe-loading">Carregando previsões...</p></section>
+      <p class="pe-note">Os valores de clima representam leituras dos sensores, não uma previsão meteorológica. O sistema não possui coordenadas para mapa nem previsão de vento.</p>
+    </main>
+  </div>
+  <script src="../../theme.js"></script><script src="../../api-config.js"></script><script src="../../api-client.js"></script><script src="../../Analista_de_dados/auth-guard.js"></script><script src="../shared.js"></script><script src="Home.js"></script>
+</body>
+</html>
