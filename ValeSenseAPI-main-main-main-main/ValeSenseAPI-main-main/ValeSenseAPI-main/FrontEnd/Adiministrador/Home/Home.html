@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ValeSense — Administrador</title>
   <link rel="stylesheet" href="Home.css" />
+  <link rel="stylesheet" href="../../painel-compacto.css" />
 </head>
 <body data-login-path="../../Analista_de_dados/Login/Login.html">
 
@@ -28,20 +29,17 @@
 
   <div class="layout">
 
-    <!-- Home, sensores e registros acompanham o scroll (scrollspy).
-         Admin não tem Dashboard nem maps — esse menu é só
-         Home / sensores / registros. -->
     <aside class="sidebar">
-      <nav id="scrollNav">
-        <a href="#home" class="nav-item" data-section="home">
+      <nav>
+        <a href="Home.html" class="nav-item active">
           <img class="nav-icon" src="../../Analista_de_dados/Dashboard/assets/Home.svg" alt="" />
           Home
         </a>
-        <a href="#sensores" class="nav-item" data-section="sensores">
+        <a href="../Sensores/Sensores.html" class="nav-item">
           <img class="nav-icon" src="../../Analista_de_dados/Dashboard/assets/Sensor.svg" alt="" />
           sensores
         </a>
-        <a href="#registros" class="nav-item" data-section="registros">
+        <a href="../Registros/Registros.html" class="nav-item">
           <img class="nav-icon" src="../../Analista_de_dados/Dashboard/assets/Registro.svg" alt="" />
           registros
         </a>
@@ -51,7 +49,7 @@
     <main class="content">
 
       <!-- ================= HOME (enxuta) ================= -->
-      <section id="home" class="page-section">
+      <section class="page-section">
         <h1 class="page-title">
           <img class="page-title-icon" src="../../Analista_de_dados/Dashboard/assets/Home.svg" alt="" />
           Home
@@ -79,82 +77,6 @@
           </table>
         </div>
 
-        <div class="card">
-          <p class="card-label">Alertas que exigem ação</p>
-          <div class="alert-row danger" id="loginAlert" hidden>
-            <svg viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3z" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="12" y1="10" x2="12" y2="14" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="17" r="1" fill="currentColor"/></svg>
-            <div>
-              <p class="alert-title" id="loginAlertTitle"></p>
-              <p class="alert-sub" id="loginAlertSub"></p>
-            </div>
-          </div>
-          <p id="loginAlertEmpty" hidden>Nenhuma tentativa de login com falha registrada.</p>
-        </div>
-
-      </section>
-
-      <!-- ================= SENSORES (com controle) ================= -->
-      <section id="sensores" class="page-section">
-        <h1 class="page-title">
-          <img class="page-title-icon" src="../../Analista_de_dados/Dashboard/assets/Sensor.svg" alt="" />
-          sensores
-        </h1>
-
-        <h2 class="section-title">Estados dos sensores</h2>
-        <p class="section-subtitle">As informações saíram nos registros entregando o que você precisa</p>
-
-        <div id="sensorList" class="sensor-list">
-          <p>Carregando sensores...</p>
-        </div>
-
-        <button id="addSensorBtn" class="btn-add-sensor">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="8" x2="12" y2="16" stroke="currentColor" stroke-width="1.8"/><line x1="8" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="1.8"/></svg>
-          Adicionar sensor
-        </button>
-      </section>
-
-      <!-- ================= REGISTROS ================= -->
-      <section id="registros" class="page-section">
-        <h1 class="page-title">
-          <img class="page-title-icon" src="../../Analista_de_dados/Dashboard/assets/Registro.svg" alt="" />
-          registros
-        </h1>
-        <p class="section-subtitle">
-          Histórico detalhado de ações do sistema — diferente da Home, que mostra só o resumo básico.
-        </p>
-
-        <div class="card table-card">
-          <div class="table-toolbar">
-            <div class="filter-group">
-              <select id="filtroAcao">
-                <option value="todas">Todas as ações</option>
-                <option value="sensor">Sensores</option>
-                <option value="usuario">Usuários</option>
-                <option value="seguranca">Segurança</option>
-              </select>
-              <input type="date" id="filtroData" />
-            </div>
-            <button id="exportRegistrosBtn" class="btn-outline">Exportar CSV</button>
-          </div>
-
-          <div class="table-scroll">
-            <table class="sheet-table" id="tabelaRegistros">
-              <thead>
-                <tr>
-                  <th>Data/Hora</th>
-                  <th>Usuário</th>
-                  <th>Ação</th>
-                  <th>Alvo</th>
-                  <th>Detalhes</th>
-                  <th>Categoria</th>
-                </tr>
-              </thead>
-              <tbody id="accessLogBody">
-                <tr><td colspan="6">Carregando registros...</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
       </section>
 
     </main>

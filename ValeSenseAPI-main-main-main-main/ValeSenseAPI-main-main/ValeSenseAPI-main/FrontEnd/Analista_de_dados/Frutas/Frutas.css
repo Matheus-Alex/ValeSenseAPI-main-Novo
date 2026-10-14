@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #EDF1E4;
   --card: #FFFFFF;
   --sidebar-active: #A9BB84;
@@ -150,3 +150,5 @@ html.dark-theme .fruit-card { box-shadow: 0 10px 26px #0B100C44; }
   .fruit-card { flex-direction: column; }
   .fruit-details { width: 100%; }
 }
+
+

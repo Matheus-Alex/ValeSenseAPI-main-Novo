@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ValeSense — Sensores</title>
+  <link rel="stylesheet" href="../Home/Home.css">
+  <link rel="stylesheet" href="Sensores.css">
+  <link rel="stylesheet" href="../../painel-compacto.css">
+</head>
+<body data-login-path="../../Analista_de_dados/Login/Login.html">
+  <div class="topbar">
+    <div class="brand">
+      <img class="brand-logo" src="../../Analista_de_dados/Dashboard/assets/Logo.svg" alt="ValeSense">
+      ValeSense
+    </div>
+    <div class="topbar-actions">
+      <a class="icon-btn" href="../Configurações/Configuracoes.html" aria-label="Configurações" title="Configurações">
+        <img class="action-icon" src="../../Analista_de_dados/Dashboard/assets/Config.svg" alt="">
+      </a>
+      <button class="icon-btn" id="scrollTopBtn" aria-label="Voltar ao topo" title="Voltar ao topo">
+        <img class="action-icon" src="../../Analista_de_dados/Dashboard/assets/Up.svg" alt="">
+      </button>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Alternar modo escuro" title="Ativar modo escuro" aria-pressed="false">
+        <img data-theme-icon src="../../Analista_de_dados/Dashboard/assets/Lua.svg" alt="">
+      </button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <a href="../Home/Home.html" class="nav-item">
+          <img class="nav-icon" src="../../Analista_de_dados/Dashboard/assets/Home.svg" alt="">
+          Home
+        </a>
+        <a href="Sensores.html" class="nav-item active" aria-current="page">
+          <img class="nav-icon" src="../../Analista_de_dados/Dashboard/assets/Sensor.svg" alt="">
+          sensores
+        </a>
+        <a href="../Registros/Registros.html" class="nav-item">
+          <img class="nav-icon" src="../../Analista_de_dados/Dashboard/assets/Registro.svg" alt="">
+          registros
+        </a>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <section class="page-section">
+        <h1 class="page-title">
+          <img class="page-title-icon" src="../../Analista_de_dados/Dashboard/assets/Sensor.svg" alt="">
+          Sensores
+        </h1>
+        <p class="section-subtitle">Consulte os sensores cadastrados e altere seu status.</p>
+
+        <div class="card">
+          <h2 class="section-title">Sensores cadastrados</h2>
+          <div id="sensorList" class="sensor-list">
+            <p>Carregando sensores...</p>
+          </div>
+          <button id="addSensorBtn" class="btn-add-sensor">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="8" x2="12" y2="16" stroke="currentColor" stroke-width="1.8"/><line x1="8" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="1.8"/></svg>
+            Adicionar sensor
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../theme.js"></script>
+  <script src="../../api-config.js"></script>
+  <script src="../../api-client.js"></script>
+  <script src="../../Analista_de_dados/auth-guard.js"></script>
+  <script src="Sensores.js"></script>
+</body>
+</html>

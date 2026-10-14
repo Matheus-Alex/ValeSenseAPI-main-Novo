@@ -1,0 +1,209 @@
+:root {
+  --painel-bg: #f2f4ed;
+  --painel-surface: #fff;
+  --painel-line: #d4ddca;
+  --painel-text: #30372f;
+  --painel-muted: #687365;
+  --painel-accent: #405b36;
+  --painel-soft: #e8eee0;
+}
+
+.layout {
+  width: min(100%, 1440px);
+  gap: 18px;
+  margin-inline: auto;
+  padding: 18px 24px 36px;
+}
+
+.sidebar {
+  width: 204px;
+  flex-basis: 204px;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.content,
+main {
+  max-width: none !important;
+  min-width: 0;
+  flex: 1;
+  margin-inline: 0;
+}
+
+.content {
+  gap: 22px;
+}
+
+.page-title {
+  font-size: 21px;
+}
+
+.page-subtitle {
+  margin-bottom: 18px;
+  font-size: 13px;
+}
+
+.card {
+  padding: 15px 17px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+}
+
+.fruit-card {
+  gap: 16px;
+  padding: 16px 18px;
+  border-radius: 10px;
+}
+
+.fruit-list {
+  gap: 12px;
+}
+
+.topbar {
+  padding: 12px 24px;
+}
+
+.icon-btn,
+.topbar .icon-btn {
+  border-radius: 8px;
+}
+
+html.dark-theme {
+  color-scheme: dark;
+}
+
+html.dark-theme body {
+  --bg: #202723;
+  --card: #29312c;
+  --surface: #29312c;
+  --branco: #29312c;
+  --line: #414b43;
+  --border: #414b43;
+  --linha: #414b43;
+  --text: #e1e7e0;
+  --text-dark: #e1e7e0;
+  --texto-corpo: #e1e7e0;
+  --muted: #adb7ad;
+  --text-muted: #adb7ad;
+  --texto-label: #adb7ad;
+  --green: #c9d6c1;
+  --accent: #c9d6c1;
+  --verde-escuro: #c9d6c1;
+  --accent-soft: #354039;
+  --verde-claro: #354039;
+  --sidebar-active: #627858;
+  --verde-oliva: #627858;
+  background: #202723 !important;
+  color: #e1e7e0;
+}
+
+html.dark-theme .topbar,
+html.dark-theme .sidebar,
+html.dark-theme .card,
+html.dark-theme .fruit-card,
+html.dark-theme .current-weather,
+html.dark-theme .icon-btn,
+html.dark-theme select,
+html.dark-theme input,
+html.dark-theme .reading-extreme {
+  background-color: #29312c;
+  border-color: #414b43;
+  color: #e1e7e0;
+  box-shadow: none;
+}
+
+html.dark-theme .page-title,
+html.dark-theme .brand,
+html.dark-theme .card h2,
+html.dark-theme .card-label,
+html.dark-theme .setting-row strong,
+html.dark-theme .settings-row .label,
+html.dark-theme .stat-value,
+html.dark-theme .weather-temp,
+html.dark-theme .reading-current strong,
+html.dark-theme .reading-extreme strong {
+  color: #d5dfd1;
+}
+
+html.dark-theme .page-subtitle,
+html.dark-theme .card .hint,
+html.dark-theme .section-subtitle,
+html.dark-theme .setting-row span,
+html.dark-theme .settings-row .desc,
+html.dark-theme .stat-label,
+html.dark-theme .weather-sub,
+html.dark-theme .chart-note,
+html.dark-theme th {
+  color: #adb7ad;
+}
+
+html.dark-theme .nav-item,
+html.dark-theme .nav-item.active {
+  color: #dbe3d8;
+}
+
+html.dark-theme .nav-item:hover,
+html.dark-theme .icon-btn:hover {
+  background: #354039;
+}
+
+html.dark-theme .nav-item.active {
+  background: #42533f;
+}
+
+html.dark-theme table th,
+html.dark-theme table td,
+html.dark-theme .tabs,
+html.dark-theme .settings-row,
+html.dark-theme .setting-row {
+  border-color: #414b43;
+}
+
+html.dark-theme tbody tr:nth-child(even),
+html.dark-theme .reading-group {
+  background-color: #2d3630;
+}
+
+html.dark-theme .tabs .tab.active {
+  color: #d5dfd1;
+  border-color: #8da181;
+}
+
+html.dark-theme .status-badge,
+html.dark-theme .badge.up,
+html.dark-theme .sensor-status.ok,
+html.dark-theme .humidity-tag,
+html.dark-theme .wind-condition {
+  background-color: #354039;
+  color: #d5dfd1;
+}
+
+html.dark-theme .alert-row.danger,
+html.dark-theme .sensor-status.danger,
+html.dark-theme .badge.down {
+  background-color: #453633;
+  color: #e5c4bd;
+}
+
+@media (max-width: 760px) {
+  .layout {
+    gap: 14px;
+    padding: 14px 16px 28px;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-basis: auto;
+    position: static;
+  }
+
+  .content,
+  main {
+    width: 100%;
+  }
+
+  .topbar {
+    padding: 12px 16px;
+  }
+}
