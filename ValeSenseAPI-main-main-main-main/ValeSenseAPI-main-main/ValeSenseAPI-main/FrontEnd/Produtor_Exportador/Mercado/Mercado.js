@@ -2,11 +2,37 @@ const { $, node, setEmpty, request, formatDate } = window.ProdutorApp;
 const currency = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
 let records = [];
 let chart;
+let fruitSalesChart;
 
 function selectedRecords() {
   const product = $("#marketProduct").value;
   return records.filter((entry) => product && entry.produto === product)
     .sort((a, b) => a.data.localeCompare(b.data));
+}
+
+function numericDemand(value) {
+  if (value === null || value === undefined) return null;
+  const normalized = String(value).trim();
+  if (!/^\d+(?:[.,]\d+)?$/.test(normalized)) return null;
+  const amount = Number(normalized.replace(',', '.'));
+  return Number.isFinite(amount) ? amount : null;
+}
+
+function renderFruitSales() {
+  const totals = new Map();
+  records.forEach((entry) => {
+    const amount = numericDemand(entry.demanda);
+    if (amount === null) return;
+    totals.set(entry.produto, (totals.get(entry.produto) || 0) + amount);
+  });
+  const ranking = [...totals.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8);
+  fruitSalesChart.data.labels = ranking.map(([product]) => product);
+  fruitSalesChart.data.datasets[0].data = ranking.map(([, amount]) => amount);
+  document.querySelector('#fruitSalesEmpty').hidden = ranking.length > 0;
+  document.querySelector('#fruitSalesNote').textContent = ranking.length
+    ? 'Soma dos valores numéricos de demanda informados por produto; registros textuais foram omitidos.'
+    : 'Sem valores numéricos de demanda neste período. Cadastre a demanda como número para comparar.';
+  fruitSalesChart.update('none');
 }
 
 function renderMarket() {
@@ -54,6 +80,7 @@ async function loadMarket() {
   try {
     const { data } = await request(`market-data?dias=${$("#marketDays").value}`);
     records = data;
+    renderFruitSales();
     const products = [...new Set(records.map((entry) => entry.produto))].sort((a, b) => a.localeCompare(b, "pt-BR"));
     const select = $("#marketProduct");
     const previous = select.value;
@@ -78,6 +105,11 @@ async function loadMarket() {
     }
     renderMarket();
   } catch (error) {
+    document.querySelector("#fruitSalesEmpty").hidden = false;
+    document.querySelector("#fruitSalesNote").textContent = "N\u00e3o foi poss\u00edvel carregar a demanda.";
+    fruitSalesChart.data.labels = [];
+    fruitSalesChart.data.datasets[0].data = [];
+    fruitSalesChart.update("none");
     $("#marketChartNote").textContent = error.message || "Não foi possível carregar os dados de mercado.";
     $("#marketEmpty").hidden = false;
     rows.replaceChildren();
@@ -91,14 +123,14 @@ async function loadMarket() {
 function marketChartColors() {
   const dark = document.documentElement.classList.contains("dark-theme");
   return dark
-    ? { text: "#a4b09e", grid: "#414e40" }
-    : { text: "#687365", grid: "#d4ddca" };
+    ? { text: "#b8c9b3", grid: "#435443", line: "#a9c796", fill: "#a9c79624", bar: "#8aaa78" }
+    : { text: "#687365", grid: "#d4ddca", line: "#6f8f62", fill: "#a9c88d35", bar: "#a9bb84" };
 }
 
 const initialChartColors = marketChartColors();
 chart = new Chart($("#marketChart"), {
   type: "line",
-  data: { labels: [], datasets: [{ label: "Preço", data: [], borderColor: "#547547", backgroundColor: "#c6d78d55", fill: true, tension: 0.28, pointRadius: 3, pointHoverRadius: 5 }] },
+  data: { labels: [], datasets: [{ label: "Preço", data: [], borderColor: initialChartColors.line, backgroundColor: initialChartColors.fill, fill: true, tension: 0.28, pointRadius: 3, pointHoverRadius: 5 }] },
   options: {
     responsive: true,
     maintainAspectRatio: false,
@@ -113,12 +145,37 @@ chart = new Chart($("#marketChart"), {
   }
 });
 
+fruitSalesChart = new Chart(document.querySelector('#fruitSalesChart'), {
+  type: 'bar',
+  data: { labels: [], datasets: [{ label: 'Demanda informada', data: [], backgroundColor: initialChartColors.bar, borderColor: initialChartColors.line, borderWidth: 1, borderRadius: 6 }] },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: false,
+    color: initialChartColors.text,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: (context) => 'Demanda: ' + new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 2 }).format(context.parsed.y) } } },
+    scales: {
+      y: { beginAtZero: true, ticks: { color: initialChartColors.text }, grid: { color: initialChartColors.grid } },
+      x: { ticks: { color: initialChartColors.text }, grid: { display: false } }
+    }
+  }
+});
+
 new MutationObserver(() => {
   const colors = marketChartColors();
   chart.options.color = colors.text;
   chart.options.scales.x.ticks.color = colors.text;
   chart.options.scales.y.ticks.color = colors.text;
   chart.options.scales.y.grid.color = colors.grid;
+  chart.data.datasets[0].borderColor = colors.line;
+  chart.data.datasets[0].backgroundColor = colors.fill;
+  fruitSalesChart.options.color = colors.text;
+  fruitSalesChart.options.scales.x.ticks.color = colors.text;
+  fruitSalesChart.options.scales.y.ticks.color = colors.text;
+  fruitSalesChart.options.scales.y.grid.color = colors.grid;
+  fruitSalesChart.data.datasets[0].backgroundColor = colors.bar;
+  fruitSalesChart.data.datasets[0].borderColor = colors.line;
+  fruitSalesChart.update("none");
   chart.update("none");
 }).observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
 

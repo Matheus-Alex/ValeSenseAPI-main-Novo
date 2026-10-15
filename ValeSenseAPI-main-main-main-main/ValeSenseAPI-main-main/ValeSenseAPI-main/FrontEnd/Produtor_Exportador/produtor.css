@@ -151,26 +151,108 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
 @media (max-width: 900px) { .pe-layout { grid-template-columns: 1fr; gap: 14px; padding: 18px; } .pe-sidebar { position: static; padding: 7px; overflow-x: auto; } .pe-nav { display: flex; width: max-content; min-width: 100%; } .pe-nav-link { min-width: max-content; } }
 @media (max-width: 620px) { .pe-topbar { min-height: 58px; padding: 9px 14px; } .pe-profile-label { display: none; } .pe-layout { padding: 14px 12px 34px; } .pe-grid-2, .pe-grid-3 { grid-template-columns: 1fr; } .pe-heading { margin-bottom: 17px; } .pe-heading h1 { font-size: 22px; } .pe-panel { padding: 15px; } .pe-timeline-item { grid-template-columns: 1fr auto; gap: 8px; } .pe-timeline-date { grid-column: 1 / -1; } .pe-row { align-items: flex-start; } .pe-row-end { align-items: flex-end; flex-direction: column; } .pe-chart-wrap { height: 245px; } }
+/* Producer interface alignment. */
+.pe-topbar { min-height: 58px; padding: 12px 24px; }
+.pe-layout { grid-template-columns: 204px minmax(0, 1fr); gap: 18px; padding: 24px 24px 36px; }
+.pe-sidebar { top: 96px; padding: 12px; border-radius: 10px; }
+
+
+/* Shared ValeSense palette and typography. */
+:root {
+  --pe-bg: #edf1e4;
+  --pe-surface: #ffffff;
+  --pe-surface-soft: #e4ecd8;
+  --pe-ink: #4a4a4a;
+  --pe-muted: #8a9b7c;
+  --pe-line: #c9d3b8;
+  --pe-green: #33512a;
+  --pe-green-2: #6f8f4f;
+  --pe-lime: #a9bb84;
+}
+body { font-size: 14px; background: linear-gradient(to bottom, #ffffff 0%, #edf1e4 55%, #d9e3c6 100%); }
+.pe-brand { font-size: 16px; }
+.pe-heading h1 { font-size: 21px; }
+.pe-section-title { font-size: 15px; }
+.pe-section-head p { font-size: 13px; }
+.pe-stat-label { font-size: 13px; }
+.pe-kicker { color: var(--pe-muted); }
+.pe-table th, .pe-table td { font-size: 13px; }
+.pe-table th { font-size: 10px; }
+
+.pe-icon-button[data-scroll-top] img { filter: brightness(0) saturate(100%) invert(30%) sepia(10%) saturate(1050%) hue-rotate(62deg) brightness(83%) contrast(90%); }
+html.dark-theme .pe-icon-button[data-scroll-top] img { filter: brightness(0) invert(0.82); }
+
+
+/* Dark theme aligned with the analyst dashboard. */
 html.dark-theme {
   color-scheme: dark;
-  --pe-bg: #181e19;
-  --pe-surface: #222a23;
-  --pe-surface-soft: #303b30;
-  --pe-ink: #e7ece3;
-  --pe-muted: #a4b09e;
-  --pe-line: #414e40;
-  --pe-green: #b8d28e;
-  --pe-green-2: #c7dda2;
-  --pe-lime: #d2e3a4;
+  --pe-bg: #202b22;
+  --pe-surface: #202b22;
+  --pe-surface-soft: #354a38;
+  --pe-ink: #e8eee4;
+  --pe-muted: #b8c9b3;
+  --pe-line: #435443;
+  --pe-green: #e6f1df;
+  --pe-green-2: #8aaa78;
+  --pe-lime: #8aaa78;
   --pe-orange: #e1a26c;
   --pe-red: #e59189;
   --pe-blue: #9bc4d3;
-  --pe-shadow: 0 12px 30px #0003;
+  --pe-shadow: 0 10px 26px #0b100c44;
 }
-html.dark-theme .pe-nav-link img { filter: brightness(0) saturate(100%) invert(81%) sepia(24%) saturate(436%) hue-rotate(35deg) brightness(94%) contrast(88%); }
-html.dark-theme .pe-nav-link.active { color: var(--pe-green); }
-html.dark-theme .pe-segmented button[aria-pressed="true"], html.dark-theme .pe-button:not(.secondary) { color: #1d291d; }
-html.dark-theme .pe-note { background: #3a3026; color: #eed7bd; }
-html.dark-theme .pe-badge.warn { background: #463526; }
-html.dark-theme .pe-badge.danger { background: #442b2a; }
-html.dark-theme .pe-badge.info { background: #293b42; }
+html.dark-theme body {
+  color: var(--pe-ink);
+  background: linear-gradient(to bottom, #182019 0%, #202b22 55%, #29362a 100%);
+}
+html.dark-theme .pe-topbar,
+html.dark-theme .pe-sidebar,
+html.dark-theme .pe-panel,
+html.dark-theme .pe-icon-button,
+html.dark-theme .pe-input,
+html.dark-theme .pe-select,
+html.dark-theme .pe-segmented,
+html.dark-theme .pe-timeline-item { background-color: #202b22; border-color: #435443; color: var(--pe-ink); box-shadow: none; }
+html.dark-theme .pe-brand,
+html.dark-theme .pe-heading h1,
+html.dark-theme .pe-section-title,
+html.dark-theme .pe-panel-heading h2,
+html.dark-theme .pe-panel-heading h3,
+html.dark-theme .pe-stat-value,
+html.dark-theme .pe-reading,
+html.dark-theme .pe-timeline-date,
+html.dark-theme .pe-price { color: #e6f1df; }
+html.dark-theme .pe-profile-label,
+html.dark-theme .pe-heading p,
+html.dark-theme .pe-section-head p,
+html.dark-theme .pe-stat-label,
+html.dark-theme .pe-stat-note,
+html.dark-theme .pe-inline-meta,
+html.dark-theme .pe-panel-heading p,
+html.dark-theme .pe-table th,
+html.dark-theme .pe-field label,
+html.dark-theme .pe-field legend { color: #b8c9b3; }
+html.dark-theme .pe-nav-link { color: #e8eee4; }
+html.dark-theme .pe-nav-link:hover,
+html.dark-theme .pe-icon-button:hover,
+html.dark-theme .pe-button.secondary:hover { background: #304132; }
+html.dark-theme .pe-nav-link.active { background: #8aaa78; color: #fff; }
+html.dark-theme .pe-nav-link.active img { filter: brightness(0) invert(1); }
+html.dark-theme .pe-nav-link img { filter: brightness(0) saturate(100%) invert(69%) sepia(12%) saturate(513%) hue-rotate(60deg) brightness(92%) contrast(87%); }
+html.dark-theme .pe-button:not(.secondary),
+html.dark-theme .pe-segmented button[aria-pressed="true"] { background: #8aaa78; border-color: #8aaa78; color: #182019; }
+html.dark-theme .pe-button.secondary { border-color: #435443; color: #e6f1df; }
+html.dark-theme .pe-table th,
+html.dark-theme .pe-table td,
+html.dark-theme .pe-row,
+html.dark-theme .pe-plot-metrics { border-color: #435443; }
+html.dark-theme .pe-table td,
+html.dark-theme .pe-row-main strong,
+html.dark-theme .pe-plot-metrics strong,
+html.dark-theme .pe-check-row { color: #e8eee4; }
+html.dark-theme .pe-table tbody tr:nth-child(even) { background: #263329; }
+html.dark-theme .pe-note { background: #304132; border-color: #8aaa78; color: #d9e7d3; }
+html.dark-theme .pe-badge { background: #354a38; color: #e6f1df; }
+html.dark-theme .pe-badge.warn { background: #463526; color: #eed7bd; }
+html.dark-theme .pe-badge.danger { background: #482f2d; color: #ffd1ca; }
+html.dark-theme .pe-badge.info { background: #30465a; color: #c7def0; }
+html.dark-theme .pe-icon-button[data-scroll-top] img { filter: brightness(0) invert(0.86); }

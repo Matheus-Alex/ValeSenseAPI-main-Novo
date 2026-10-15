@@ -88,7 +88,7 @@ body {
 .action-icon { width: 18px; height: 18px; object-fit: contain; }
 
 /* Conteúdo — rolagem única (Home + sensores) */
-.content { flex: 1; min-width: 0; max-width: 900px; margin-inline: auto; display: flex; flex-direction: column; gap: 56px; }
+.content { flex: 1; min-width: 0; max-width: none; margin-inline: auto; display: flex; flex-direction: column; gap: 28px; }
 .page-section { scroll-margin-top: 96px; display: flex; flex-direction: column; gap: 16px; }
 
 .page-title { display: flex; align-items: center; gap: 10px; font-size: 20px; color: var(--verde-escuro); margin: 4px 0 0; }

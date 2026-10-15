@@ -1,6 +1,6 @@
 :root { --bg: #edf1e4; --surface: #ffffff; --line: #c9d3b8; --text: #4a4a4a; --muted: #8a9b7c; --green: #33512a; --accent: #a9bb84; }
 * { box-sizing: border-box; }
-.content { max-width: 900px !important; margin-inline: auto; }
+.content { max-width: none !important; margin-inline: auto; }
 html.dark-theme .brand { color: #e6eee4 !important; }
 body { margin: 0; min-height: 100vh; font-family: Arial, Helvetica, sans-serif; color: var(--text); background: linear-gradient(135deg, #ffffff 0%, var(--bg) 60%, #d9e3c6 100%); }
 .topbar { display: flex; align-items: center; gap: 24px; padding: 16px 24px; background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 2; }

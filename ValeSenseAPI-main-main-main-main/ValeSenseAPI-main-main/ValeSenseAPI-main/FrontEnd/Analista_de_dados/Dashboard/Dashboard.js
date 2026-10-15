@@ -234,6 +234,33 @@ const climChart = new Chart(document.getElementById('climChart'), {
   }
 });
 
+function aplicarTemaDosGraficos() {
+  const dark = document.documentElement.classList.contains('dark-theme');
+  const palette = dark
+    ? { text: '#b8c9b3', grid: '#536354', axis: '#788a78', temperature: '#a9c796', humidity: '#85b8cf', bars: '#8aaa78' }
+    : { text: '#4A4A4A', grid: '#d5dfc9', axis: '#a7b49b', temperature: '#33512A', humidity: '#378ADD', bars: '#A9BB84' };
+  [tempChart, umidadeChart, sensorStatusChart, climChart].forEach((chart) => {
+    chart.options.color = palette.text;
+    Object.values(chart.options.scales || {}).forEach((scale) => {
+      scale.ticks = scale.ticks || {};
+      scale.ticks.color = palette.text;
+      scale.grid = scale.grid || {};
+      scale.grid.color = palette.grid;
+      scale.border = scale.border || {};
+      scale.border.color = palette.axis;
+    });
+  });
+  tempChart.data.datasets[0].borderColor = palette.temperature;
+  umidadeChart.data.datasets[0].backgroundColor = palette.bars;
+  sensorStatusChart.data.datasets[0].backgroundColor = [dark ? '#78a66b' : '#477A3B', dark ? '#e08a82' : '#B3413A', palette.bars];
+  climChart.data.datasets[0].borderColor = dark ? '#ff9b7a' : '#D85A30';
+  climChart.data.datasets[1].borderColor = palette.humidity;
+  [tempChart, umidadeChart, sensorStatusChart, climChart].forEach((chart) => chart.update('none'));
+}
+
+aplicarTemaDosGraficos();
+new MutationObserver(aplicarTemaDosGraficos).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
 const canalSelect = document.getElementById('canalSelect');
 const periodoSelect = document.getElementById('periodoSelect');
 const sensorList = document.getElementById('sensorList');

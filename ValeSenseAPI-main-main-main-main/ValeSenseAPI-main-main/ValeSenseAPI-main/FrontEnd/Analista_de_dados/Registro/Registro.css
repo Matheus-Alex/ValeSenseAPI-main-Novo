@@ -115,7 +115,7 @@ nav.nav-group { display: flex; flex-direction: column; gap: 4px; }
 main {
   flex: 1;
   min-width: 0;
-  max-width: 980px;
+  max-width: none;
   margin-inline: auto;
   padding: 0;
 }
@@ -329,3 +329,13 @@ html.dark-theme .search-box input:-webkit-autofill { -webkit-text-fill-color: #e
   .search-box { order: 3; flex-basis: 100%; max-width: none; }
   .topbar-actions { margin-left: auto; }
 }
+
+
+/* Shared analyst typography scale. */
+body { font-size: 14px; }
+.page-title { font-size: 21px; }
+.page-subtitle { font-size: 13px; }
+.card h2 { font-size: 15px; }
+.tab { font-size: 13px; }
+table { font-size: 13px; }
+select, input[type="text"], input[type="number"] { font-size: 13px; }
