@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ValeSense â€” Analista de Dados</title>
+  <title>ValeSense — Analista de Dados</title>
   <link rel="stylesheet" href="Dashboard.css" />
   <link rel="stylesheet" href="../../painel-compacto.css" />
 </head>
@@ -15,7 +15,7 @@
       ValeSense
     </div>
     <div class="topbar-actions">
-      <a class="icon-btn" href="../ConfiguraÃ§Ãµes/Configuracoes.html" aria-label="ConfiguraÃ§Ãµes" title="ConfiguraÃ§Ãµes">
+      <a class="icon-btn" href="../Configurações/Configuracoes.html" aria-label="Configurações" title="Configurações">
         <img class="action-icon" src="assets/Config.svg" alt="" />
       </a>
       <button class="icon-btn" id="scrollTopBtn" aria-label="Voltar ao topo" title="Voltar ao topo">
@@ -24,7 +24,7 @@
       <button class="icon-btn" type="button" data-theme-toggle aria-label="Alternar modo escuro" title="Ativar modo escuro" aria-pressed="false">
         <img data-theme-icon src="assets/Lua.svg" alt="" />
       </button>
-    </div>
+    <button class="icon-btn logout-action" type="button" data-logout aria-label="Sair" title="Sair"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg><span>Sair</span></button></div>
   </div>
 
   <div class="layout">
@@ -64,11 +64,11 @@
           <img class="page-title-icon" src="assets/Home.svg" alt="" />
           Home
         </h1>
-        <p class="selected-day" id="selectedDayLabel">Ãšltimas leituras registradas</p>
+        <p class="selected-day" id="selectedDayLabel">Últimas leituras registradas</p>
 
         <div class="grid-2 home-overview-grid">
           <div class="card">
-            <p class="card-label">Ãšltima leitura dos sensores</p>
+            <p class="card-label">Última leitura dos sensores</p>
             <div class="weather-row">
               <div>
                 <p class="weather-temp" id="weatherTemp">--</p>
@@ -81,9 +81,9 @@
           <div class="card">
             <div class="temperature-card-heading">
               <p class="card-label">Temperatura</p>
-              <div class="temperature-modes" role="group" aria-label="ExibiÃ§Ã£o da temperatura">
-                <button class="temperature-mode" type="button" data-temperature-mode="max" aria-pressed="false">MÃ¡xima</button>
-                <button class="temperature-mode" type="button" data-temperature-mode="min" aria-pressed="false">MÃ­nima</button>
+              <div class="temperature-modes" role="group" aria-label="Exibição da temperatura">
+                <button class="temperature-mode" type="button" data-temperature-mode="max" aria-pressed="false">Máxima</button>
+                <button class="temperature-mode" type="button" data-temperature-mode="min" aria-pressed="false">Mínima</button>
               </div>
             </div>
             <div class="chart-wrapper small"><canvas id="tempChart"></canvas></div>
@@ -96,9 +96,9 @@
           <div class="card">
             <div class="temperature-card-heading">
               <p class="card-label">Umidade Relativa</p>
-              <div class="temperature-modes" role="group" aria-label="ExibiÃ§Ã£o da umidade">
-                <button class="temperature-mode" type="button" data-humidity-mode="max" aria-pressed="false">MÃ¡xima</button>
-                <button class="temperature-mode" type="button" data-humidity-mode="min" aria-pressed="false">MÃ­nima</button>
+              <div class="temperature-modes" role="group" aria-label="Exibição da umidade">
+                <button class="temperature-mode" type="button" data-humidity-mode="max" aria-pressed="false">Máxima</button>
+                <button class="temperature-mode" type="button" data-humidity-mode="min" aria-pressed="false">Mínima</button>
               </div>
             </div>
             <div class="humidity-row">
@@ -137,7 +137,7 @@
         </h1>
 
         <h2 class="section-title">Estados dos sensores</h2>
-        <p class="section-subtitle">As informaÃ§Ãµes saÃ­ram nos registros entregando o que vocÃª precisa</p>
+        <p class="section-subtitle">Acompanhe os indicadores e registros da sua propriedade.</p>
 
         <div class="sensor-list" id="sensorList" aria-live="polite">Carregando sensores...</div>
 
@@ -147,9 +147,9 @@
             <select id="canalSelect" aria-label="Sensor">
               <option value="">Todos os sensores</option>
             </select>
-            <select id="periodoSelect" aria-label="PerÃ­odo dos dados">
-              <option value="30">Ãšltimos 30 dias</option>
-              <option value="90">Ãšltimos 90 dias</option>
+            <select id="periodoSelect" aria-label="Período dos dados">
+              <option value="30">Últimos 30 dias</option>
+              <option value="90">Últimos 90 dias</option>
               <option value="safra">Safra atual</option>
             </select>
           </div>
@@ -157,17 +157,17 @@
         </div>
 
         <div class="card">
-          <p class="card-label">PrevisÃµes de safra cadastradas</p>
-          <div id="forecastList" class="forecast-list" aria-live="polite">Carregando previsÃµes...</div>
+          <p class="card-label">Previsões de safra cadastradas</p>
+          <div id="forecastList" class="forecast-list" aria-live="polite">Carregando previsões...</div>
         </div>
 
         <div class="card">
-          <p class="card-label">Temperatura e umidade â€” histÃ³rico</p>
+          <p class="card-label">Temperatura e umidade — histórico</p>
           <div class="chart-wrapper large"><canvas id="climChart"></canvas></div>
           <p class="chart-note" id="historyNote"></p>
         </div>
 
-        <p class="sensor-note">Somente leitura â€” ativar/desativar sensores Ã© uma aÃ§Ã£o do Administrador.</p>
+        <p class="sensor-note">Somente leitura — ativar/desativar sensores é uma ação do Administrador.</p>
       </section>
 
     </main>

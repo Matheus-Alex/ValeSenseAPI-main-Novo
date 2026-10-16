@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #EDF1E4;
   --card: #FFFFFF;
   --sidebar-active: #A9BB84;
@@ -285,22 +285,27 @@ button.btn.danger-ghost { background: var(--card); border: 1px solid var(--dange
   main { width: 100%; }
 }
 
-html.dark-theme body { background: linear-gradient(to bottom, #182019 0%, #202b22 55%, #29362a 100%); color: #e8eee4; }
+html.dark-theme body { background: linear-gradient(to bottom, #1a1d1b 0%, #252a27 55%, #2b302d 100%); color: #e3e7e3; }
 html.dark-theme .brand { color: #e6eee4; }
 html.dark-theme .topbar,
 html.dark-theme .sidebar,
 html.dark-theme .card,
 html.dark-theme .icon-btn,
 html.dark-theme select,
-html.dark-theme input { background: #202b22; border-color: #435443; color: #e8eee4; }
+html.dark-theme input { background: #252a27; border-color: #475048; color: #e3e7e3; }
 html.dark-theme .nav-item,
 html.dark-theme .page-title,
 html.dark-theme .card h2,
-html.dark-theme .settings-row .label { color: #e8eee4; }
+html.dark-theme .settings-row .label { color: #e3e7e3; }
 html.dark-theme .nav-item:hover,
 html.dark-theme .icon-btn:hover,
-html.dark-theme button.btn.ghost:hover { background: #304132; }
+html.dark-theme button.btn.ghost:hover { background: #303632; }
 html.dark-theme .page-subtitle,
 html.dark-theme .card .hint,
-html.dark-theme .settings-row .desc { color: #a9b8a5; }
+html.dark-theme .settings-row .desc { color: #b2b9b2; }
 html.dark-theme .card { box-shadow: 0 10px 26px #0b100c44; }
+.topbar-actions .icon-btn > img { filter: brightness(0) saturate(100%) invert(25%) sepia(15%) saturate(1516%) hue-rotate(55deg) brightness(91%) contrast(88%); }
+html.dark-theme .topbar-actions .icon-btn > img { filter: brightness(0) saturate(100%) invert(91%) sepia(4%) saturate(237%) hue-rotate(62deg) brightness(98%) contrast(91%); }
+.logout-action { display:inline-flex; align-items:center; justify-content:center; gap:6px; width:auto!important; min-width:68px; padding:0 10px; color:#a3433d; font-size:12px; font-weight:700; }
+.logout-action svg { width:16px; height:16px; flex:0 0 16px; }
+.logout-action span { line-height:1; }

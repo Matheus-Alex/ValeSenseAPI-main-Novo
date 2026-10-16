@@ -8,7 +8,7 @@ const normalizar = (valor) => valor.normalize('NFD')
 
 plantacoes.forEach((plantacao) => { plantacao.hidden = true; });
 estadoVazio.hidden = false;
-estadoVazio.textContent = 'Carregando dados reais das plantações...';
+estadoVazio.textContent = 'Carregando dados reais das planta��es...';
 
 function filtrarPlantacoes() {
   const termo = normalizar(buscaFrutas.value.trim());
@@ -23,7 +23,7 @@ function filtrarPlantacoes() {
 
   estadoVazio.hidden = visiveis > 0;
   if (!visiveis && plantacoesComDados.size) {
-    estadoVazio.textContent = 'Nenhuma plantação corresponde à pesquisa.';
+    estadoVazio.textContent = 'Nenhuma planta��o corresponde � pesquisa.';
   }
 }
 
@@ -43,18 +43,18 @@ async function carregarPrecosMercado() {
         .filter((item) => normalizar(item.produto).includes(produto))
         .sort((a, b) => b.data.localeCompare(a.data))[0];
       if (!registro) {
-        element.textContent = 'Preço de mercado: sem registro no banco';
+        element.textContent = 'Pre�o de mercado: sem registro no banco';
         return;
       }
       const valor = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
         .format(registro.preco);
       const unidade = registro.unidadePreco ? ` ${registro.unidadePreco}` : '';
-      element.textContent = `Preço de mercado: ${valor}${unidade} (${new Date(`${registro.data}T00:00:00`).toLocaleDateString('pt-BR')})`;
+      element.textContent = `Pre�o de mercado: ${valor}${unidade} (${new Date(`${registro.data}T00:00:00`).toLocaleDateString('pt-BR')})`;
     });
   } catch (error) {
-    console.error('Falha ao carregar preços de mercado:', error);
+    console.error('Falha ao carregar pre�os de mercado:', error);
     precos.forEach((element) => {
-      element.textContent = 'Preço de mercado indisponível. Verifique a conexão com a API.';
+      element.textContent = 'Pre�o de mercado indispon�vel. Verifique a conex�o com a API.';
     });
   }
 }
@@ -77,15 +77,15 @@ async function carregarLeituras() {
       const umidades = leituras.map((item) => item.umidade);
       const formatar = (valor) => valor.toLocaleString('pt-BR', { maximumFractionDigits: 2 });
 
-      clima.querySelector('.weather-temp').textContent = `${formatar(ultima.temperatura)} °C`;
-      clima.querySelectorAll('.weather-sub')[0].textContent = 'Última leitura registrada';
+      clima.querySelector('.weather-temp').textContent = `${formatar(ultima.temperatura)} �C`;
+      clima.querySelectorAll('.weather-sub')[0].textContent = '�ltima leitura registrada';
       clima.querySelectorAll('.weather-sub')[1].textContent =
-        `${ultima.sensor.identificador} · ${new Date(ultima.timestamp).toLocaleString('pt-BR')}`;
-      grupos[0].querySelector('.reading-current strong').textContent = `${formatar(ultima.temperatura)} °C`;
+        `${ultima.sensor.identificador} � ${new Date(ultima.timestamp).toLocaleString('pt-BR')}`;
+      grupos[0].querySelector('.reading-current strong').textContent = `${formatar(ultima.temperatura)} �C`;
       grupos[0].querySelectorAll('.reading-extreme strong')[0].textContent =
-        `${formatar(Math.min(...temperaturas))} °C`;
+        `${formatar(Math.min(...temperaturas))} �C`;
       grupos[0].querySelectorAll('.reading-extreme strong')[1].textContent =
-        `${formatar(Math.max(...temperaturas))} °C`;
+        `${formatar(Math.max(...temperaturas))} �C`;
       grupos[1].querySelector('.reading-current strong').textContent = `${formatar(ultima.umidade)}%`;
       grupos[1].querySelectorAll('.reading-extreme strong')[0].textContent =
         `${formatar(Math.min(...umidades))}%`;
@@ -101,13 +101,13 @@ async function carregarLeituras() {
     });
 
     if (!plantacoesComDados.size) {
-      estadoVazio.textContent = 'Nenhuma leitura cadastrada no banco corresponde às plantações exibidas.';
+      estadoVazio.textContent = 'Nenhuma leitura cadastrada no banco corresponde �s planta��es exibidas.';
     }
     filtrarPlantacoes();
   } catch (error) {
-    console.error('Falha ao carregar leituras das plantações:', error);
+    console.error('Falha ao carregar leituras das planta��es:', error);
     estadoVazio.hidden = false;
-    estadoVazio.textContent = 'Não foi possível carregar os dados das plantações do banco.';
+    estadoVazio.textContent = 'N�o foi poss�vel carregar os dados das planta��es do banco.';
   }
 }
 

@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --verde-oliva: #A9BB84;
   --verde-oliva-hover: #98AB74;
   --verde-escuro: #33512A;
@@ -83,13 +83,15 @@ body {
 .nav-item .nav-icon { filter: brightness(0) saturate(100%) invert(69%) sepia(17%) saturate(560%) hue-rotate(39deg) brightness(91%) contrast(86%); }
 .nav-item:hover { background: var(--verde-claro); }
 
-/* Item ativo — atualizado via JS conforme o scroll (scrollspy) */
+/* Item ativo â€” atualizado via JS conforme o scroll (scrollspy) */
 .nav-item.active { background: var(--verde-oliva); color: var(--branco); }
 .nav-item.active svg { color: var(--branco); }
 .nav-item.active .nav-icon { filter: brightness(0) invert(1); }
+.topbar-actions .action-icon, .topbar-actions [data-theme-icon] { filter: brightness(0) saturate(100%) invert(25%) sepia(15%) saturate(1516%) hue-rotate(55deg) brightness(91%) contrast(88%); }
+html.dark-theme .topbar-actions .action-icon, html.dark-theme .topbar-actions [data-theme-icon] { filter: brightness(0) saturate(100%) invert(91%) sepia(4%) saturate(237%) hue-rotate(62deg) brightness(98%) contrast(91%); }
 .action-icon { width: 18px; height: 18px; object-fit: contain; }
 
-/* Conteúdo principal — rolagem única com seções */
+/* ConteÃºdo principal â€” rolagem Ãºnica com seÃ§Ãµes */
 .content { flex: 1; min-width: 0; max-width: none; margin-inline: auto; display: flex; flex-direction: column; gap: 28px; }
 
 .page-section { scroll-margin-top: 96px; display: flex; flex-direction: column; gap: 16px; }
@@ -102,7 +104,7 @@ body {
 .chev { display: inline-block; }
 .selected-day { font-size: 12px; color: var(--verde-escuro); font-weight: 700; background: var(--verde-claro); display: inline-block; padding: 3px 10px; border-radius: 999px; margin: -6px 0 4px; }
 
-/* Cards genéricos */
+/* Cards genÃ©ricos */
 .grid-2 { display: grid; min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 
 .card {
@@ -115,7 +117,7 @@ body {
 
 .card-label { font-size: 13px; color: var(--texto-label); margin: 0 0 10px; }
 
-/* Home — clima atual */
+/* Home â€” clima atual */
 .home-overview-grid,
 .home-environment-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
 .home-overview-grid > .card,
@@ -133,7 +135,7 @@ body {
 .temperature-mode:hover { background: var(--verde-claro); }
 .temperature-mode.active { border-color: var(--verde-escuro); background: var(--verde-escuro); color: var(--branco); }
 
-/* Gráficos pequenos */
+/* GrÃ¡ficos pequenos */
 .chart-wrapper { min-width: 0; }
 .chart-wrapper canvas { display: block; max-width: 100%; }
 .chart-wrapper.small { position: relative; height: 90px; }
@@ -149,7 +151,7 @@ body {
 .big-icon { width: 36px; height: 36px; flex-shrink: 0; }
 .humidity-tag { display: inline-block; margin-top: 10px; font-size: 12px; font-weight: 700; color: var(--verde-escuro); background: var(--verde-claro); padding: 3px 10px; border-radius: 999px; }
 
-/* Vento — bússola e indicadores */
+/* Vento â€” bÃºssola e indicadores */
 .compass-row { display: flex; align-items: center; gap: 16px; min-width: 0; }
 .compass {
   position: relative;
@@ -183,7 +185,7 @@ body {
 .wind-stat strong small { color: inherit; font-size: 10px; font-weight: 400; }
 .wind-stat.gust { background: #F3F6EE; }
 
-/* Dashboard — carrossel de previsão */
+/* Dashboard â€” carrossel de previsÃ£o */
 .forecast-carousel { display: flex; align-items: center; gap: 8px; }
 .forecast-track { flex: 1; display: flex; gap: 10px; overflow-x: auto; scroll-behavior: smooth; padding: 2px; }
 .forecast-day {
@@ -216,7 +218,7 @@ body {
 .fc-temp { font-size: 13px; font-weight: 700; color: var(--verde-escuro); margin: 0; }
 .fc-temp-min { font-size: 11px; color: var(--texto-label); margin: 0; }
 
-/* Filtros e gráficos do ThingSpeak */
+/* Filtros e grÃ¡ficos do ThingSpeak */
 .filter-bar {
   display: flex;
   justify-content: space-between;
@@ -286,7 +288,7 @@ html:not(.dark-theme) .sensor-status.danger svg,
 html:not(.dark-theme) .status-dot.danger { color: #982F2A; }
 html:not(.dark-theme) .status-dot.danger { background: #982F2A; }
 
-/* Indicador de status somente leitura (sem toggle, ao contrário da tela do Admin) */
+/* Indicador de status somente leitura (sem toggle, ao contrÃ¡rio da tela do Admin) */
 .status-dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; }
 .status-dot.ok { background: var(--verde-oliva); }
 .status-dot.danger { background: var(--erro); }
@@ -338,33 +340,33 @@ html:not(.dark-theme) .status-dot.danger { background: #982F2A; }
 }
 
 html.dark-theme body {
-  --branco: #202b22;
-  --texto-corpo: #e8eee4;
-  --texto-label: #b8c9b3;
-  --verde-escuro: #e6f1df;
-  --verde-claro: #354a38;
-  --verde-oliva: #8aaa78;
-  --linha: #435443;
-  background: linear-gradient(to bottom, #182019 0%, #202b22 55%, #29362a 100%);
-  color: #e8eee4;
+  --branco: #252a27;
+  --texto-corpo: #e3e7e3;
+  --texto-label: #b9c1b8;
+  --verde-escuro: #e3e7e3;
+  --verde-claro: #343d35;
+  --verde-oliva: #84917b;
+  --linha: #475048;
+  background: linear-gradient(to bottom, #1a1d1b 0%, #252a27 55%, #2b302d 100%);
+  color: #e3e7e3;
 }
 html.dark-theme .topbar,
 html.dark-theme .sidebar,
 html.dark-theme .card,
-html.dark-theme .icon-btn { background: #202b22; border-color: #435443; }
+html.dark-theme .icon-btn { background: #252a27; border-color: #475048; }
 html.dark-theme .nav-item,
 html.dark-theme .page-title,
 html.dark-theme .card-label,
-html.dark-theme .stat-label { color: #e8eee4; }
+html.dark-theme .stat-label { color: #e3e7e3; }
 html.dark-theme .nav-item:hover,
-html.dark-theme .icon-btn:hover { background: #304132; }
+html.dark-theme .icon-btn:hover { background: #303632; }
 html.dark-theme .weather-sub,
 html.dark-theme .chart-note,
-html.dark-theme .section-subtitle { color: #a9b8a5; }
-html.dark-theme .forecast-day { background: #304132; border-color: #435443; }
-html.dark-theme .forecast-item { border-color: #435443; }
+html.dark-theme .section-subtitle { color: #b2b9b2; }
+html.dark-theme .forecast-day { background: #303632; border-color: #475048; }
+html.dark-theme .forecast-item { border-color: #475048; }
 html.dark-theme .forecast-item strong { color: #c1d6ae; }
-html.dark-theme .forecast-day.active { background: #6f8f60; border-color: #6f8f60; }
+html.dark-theme .forecast-day.active { background: #75816f; border-color: #75816f; }
 html.dark-theme .forecast-day.active .fc-day,
 html.dark-theme .forecast-day.active .fc-label,
 html.dark-theme .forecast-day.active .fc-temp,
@@ -375,24 +377,24 @@ html.dark-theme .card-label,
 html.dark-theme .chart-note,
 html.dark-theme .stat-label,
 html.dark-theme .sensor-note,
-html.dark-theme .layer-info { color: #b8c9b3; }
+html.dark-theme .layer-info { color: #b9c1b8; }
 html.dark-theme .stat-value,
 html.dark-theme .weather-temp,
 html.dark-theme .fc-temp,
-html.dark-theme .fc-label { color: #e6f1df; }
-html.dark-theme .temperature-mode { background: #304132; border-color: #435443; color: #e8eee4; }
+html.dark-theme .fc-label { color: #e3e7e3; }
+html.dark-theme .temperature-mode { background: #303632; border-color: #475048; color: #e3e7e3; }
 html.dark-theme .temperature-mode:hover { background: #3b5140; }
-html.dark-theme .temperature-mode.active { background: #6f8f60; border-color: #6f8f60; color: #fff; }
-html.dark-theme .compass { border-color: #8aaa78; background: #263329; box-shadow: inset 0 0 0 1px #435443; }
-html.dark-theme .compass .dir { color: #d9e7d3; }
+html.dark-theme .temperature-mode.active { background: #75816f; border-color: #75816f; color: #fff; }
+html.dark-theme .compass { border-color: #84917b; background: #2a302c; box-shadow: inset 0 0 0 1px #475048; }
+html.dark-theme .compass .dir { color: #d6ddd5; }
 html.dark-theme .compass .n,
 html.dark-theme .compass-center,
 html.dark-theme .wind-direction strong,
-html.dark-theme .wind-stat strong { color: #e6f1df; }
-html.dark-theme .compass-center { background: #202b22; }
-html.dark-theme .wind-stat { background: #304132; border-color: #435443; }
-html.dark-theme .wind-stat.gust { background: #293a2d; }
-html.dark-theme .wind-condition { color: #e6f1df; background: #354a38; }
+html.dark-theme .wind-stat strong { color: #e3e7e3; }
+html.dark-theme .compass-center { background: #252a27; }
+html.dark-theme .wind-stat { background: #303632; border-color: #475048; }
+html.dark-theme .wind-stat.gust { background: #2c332e; }
+html.dark-theme .wind-condition { color: #e3e7e3; background: #343d35; }
 html.dark-theme .compass-needle path { fill: #a9c796 !important; }
 
 @media (max-width: 520px) {
@@ -405,3 +407,32 @@ html.dark-theme .compass-needle path { fill: #a9c796 !important; }
   .topbar { padding: 12px 16px; }
   .topbar-actions { gap: 6px; }
 }
+.topbar-actions .icon-btn > img { filter: brightness(0) saturate(100%) invert(25%) sepia(15%) saturate(1516%) hue-rotate(55deg) brightness(91%) contrast(88%); }
+html.dark-theme .topbar-actions .icon-btn > img { filter: brightness(0) saturate(100%) invert(91%) sepia(4%) saturate(237%) hue-rotate(62deg) brightness(98%) contrast(91%); }
+.logout-action { display:inline-flex; align-items:center; justify-content:center; gap:6px; width:auto!important; min-width:68px; padding:0 10px; color:#a3433d; font-size:12px; font-weight:700; }
+.logout-action svg { width:16px; height:16px; flex:0 0 16px; }
+.logout-action span { line-height:1; }
+
+
+/* Analyst navigation aligned across Dashboard, Frutas, Registros, and Map. */
+.layout { display:flex; align-items:flex-start; gap:24px; padding:24px; }
+.sidebar { box-sizing:border-box; width:190px; flex:0 0 190px; padding:16px; gap:20px; border-radius:14px; position:sticky; top:96px; }
+.sidebar nav, .sidebar .nav-group { display:flex; flex-direction:column; gap:4px; width:100%; }
+.sidebar .nav-item { display:flex; align-items:center; box-sizing:border-box; width:100%; min-height:36px; gap:10px; padding:9px 10px; font-size:13px; line-height:18px; }
+.sidebar .nav-item img.nav-icon, .sidebar .nav-item svg.nav-icon { width:17px!important; height:17px!important; flex:0 0 17px; }
+.sidebar .nav-item.active { background:var(--sidebar-active, var(--verde-oliva)); color:#fff; }
+.sidebar .nav-item.active .nav-icon { filter:brightness(0) invert(1); }
+.sidebar .nav-item.active svg { color:#fff; }
+@media (max-width:780px) {
+  .layout { flex-direction:column; gap:24px; padding:24px; }
+  .sidebar { width:100%; flex:0 0 auto; position:static; flex-direction:row; flex-wrap:wrap; }
+  .sidebar nav, .sidebar .nav-group { flex-direction:row; flex-wrap:wrap; width:auto; }
+  .sidebar .nav-item { width:auto; }
+  .content, main { width:100%; }
+}
+
+
+/* Analyst sidebar text color aligned with the other analyst pages. */
+.sidebar .nav-item { color: var(--texto-label); }
+.sidebar .nav-item:hover { color: var(--verde-escuro); }
+.sidebar .nav-item.active { color: #fff; }

@@ -1,4 +1,4 @@
-const { $, $$, request } = window.ProdutorApp;
+﻿const { $, $$, request } = window.ProdutorApp;
 const profileMessage = $("#profileMessage");
 const preferenceMessage = $("#preferenceMessage");
 
@@ -20,8 +20,8 @@ async function loadSettings() {
     const channels = Array.isArray(preferences.canais) ? preferences.canais : [];
     $$('input[name="channel"]').forEach((input) => { input.checked = channels.includes(input.value); });
   } catch (error) {
-    setMessage(profileMessage, error.message || "Não foi possível carregar os dados da conta.", true);
-    setMessage(preferenceMessage, "Preferências indisponíveis.", true);
+    setMessage(profileMessage, error.message || "NÃ£o foi possÃ­vel carregar os dados da conta.", true);
+    setMessage(preferenceMessage, "PreferÃªncias indisponÃ­veis.", true);
   }
 }
 
@@ -37,7 +37,7 @@ $("#profileForm").addEventListener("submit", async (event) => {
     });
     setMessage(profileMessage, "Perfil salvo.");
   } catch (error) {
-    setMessage(profileMessage, error.message || "Não foi possível salvar o perfil.", true);
+    setMessage(profileMessage, error.message || "NÃ£o foi possÃ­vel salvar o perfil.", true);
   } finally {
     button.disabled = false;
   }
@@ -54,9 +54,9 @@ $("#preferenceForm").addEventListener("submit", async (event) => {
       method: "PUT",
       body: JSON.stringify({ alertaSensor: $("#sensorAlerts").checked, canais })
     });
-    setMessage(preferenceMessage, "Preferências salvas.");
+    setMessage(preferenceMessage, "PreferÃªncias salvas.");
   } catch (error) {
-    setMessage(preferenceMessage, error.message || "Não foi possível salvar as preferências.", true);
+    setMessage(preferenceMessage, error.message || "NÃ£o foi possÃ­vel salvar as preferÃªncias.", true);
   } finally {
     button.disabled = false;
   }

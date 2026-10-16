@@ -32,4 +32,15 @@
     const button = event.target.closest('[data-theme-toggle]');
     if (button) window.applyTheme(!document.documentElement.classList.contains('dark-theme'));
   });
+  document.addEventListener('click', (event) => {
+    const logoutButton = event.target.closest('[data-logout]');
+    if (!logoutButton) return;
+    event.preventDefault();
+    sessionStorage.removeItem('valesense_token');
+    sessionStorage.removeItem('valesense_user');
+    localStorage.removeItem('valesense_token');
+    localStorage.removeItem('valesense_user');
+    window.location.href = document.body.dataset.loginPath || '../Login/Login.html';
+  });
+
 })();
